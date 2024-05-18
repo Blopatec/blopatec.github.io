@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba.cl</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .visible {
+            display: flex;
+        }
+        .page img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .navigation {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .navigation button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .navigation button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div id="page1" class="page visible">
+        <img src="1.png" alt="Imagen 1">
+    </div>
+    <div id="page2" class="page">
+        <img src="2.png" alt="Imagen 2">
+    </div>
+    
+    <div class="navigation">
+        <button onclick="showPage('page1')">Página 1</button>
+        <button onclick="showPage('page2')">Página 2</button>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.getElementById('page1').classList.remove('visible');
+            document.getElementById('page2').classList.remove('visible');
+            document.getElementById(pageId).classList.add('visible');
+        }
+    </script>
+</body>
+</html>
